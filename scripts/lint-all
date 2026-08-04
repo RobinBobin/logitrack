@@ -1,0 +1,5 @@
+#! /usr/bin/env bash
+pnpm \
+  --filter='!@logitrack/typescript-config' \
+  --recursive exec \
+  pnpm eslint --fix && pnpm tsc --noEmit
