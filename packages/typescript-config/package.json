@@ -1,9 +1,9 @@
 {
-  "name": "@repo/typescript-config",
-  "version": "0.0.0",
+  "devDependencies": {
+    "typescript": "catalog:"
+  },
+  "main": "./tsconfig.json",
+  "name": "@logitrack/typescript-config",
   "private": true,
-  "license": "MIT",
-  "publishConfig": {
-    "access": "public"
-  }
+  "type": "module"
 }

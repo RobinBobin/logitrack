@@ -1,24 +1,25 @@
 {
-  "name": "@repo/eslint-config",
-  "version": "0.0.0",
-  "type": "module",
-  "private": true,
-  "exports": {
-    "./base": "./base.js",
-    "./next-js": "./next.js",
-    "./react-internal": "./react-internal.js"
-  },
   "devDependencies": {
-    "@eslint/js": "^9.39.1",
-    "@next/eslint-plugin-next": "^16.3.0",
-    "eslint": "^9.39.1",
-    "eslint-config-prettier": "^10.1.1",
-    "eslint-plugin-only-warn": "^1.1.0",
-    "eslint-plugin-react": "^7.37.5",
-    "eslint-plugin-react-hooks": "^5.2.0",
-    "eslint-plugin-turbo": "^2.7.1",
-    "globals": "^16.5.0",
-    "typescript": "^5.9.2",
-    "typescript-eslint": "^8.50.0"
-  }
+    "@eslint/js": "^10.0.1",
+    "@logitrack/typescript-config": "workspace:*",
+    "@stylistic/eslint-plugin": "^5.10.0",
+    "@typescript-eslint/parser": "^8.66.0",
+    "eslint": "catalog:",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-config-turbo": "^2.10.8",
+    "eslint-import-resolver-typescript": "^4.4.5",
+    "eslint-plugin-import-x": "^4.17.1",
+    "eslint-plugin-promise": "^7.3.0",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "eslint-plugin-simple-import-sort": "^14.0.0",
+    "jiti": "^2.7.0",
+    "typescript": "catalog:",
+    "typescript-eslint": "^8.66.0"
+  },
+  "exports": {
+    ".": "./eslint.config.ts"
+  },
+  "name": "@logitrack/eslint-config",
+  "private": true,
+  "type": "module"
 }

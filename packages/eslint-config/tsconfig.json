@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "compilerOptions": {
+    "noEmit": true
+  },
+  "extends": "@logitrack/typescript-config",
+  "files": ["eslint.config.ts"],
+  "include": ["**/*.js"]
+}
