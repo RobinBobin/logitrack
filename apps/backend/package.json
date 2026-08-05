@@ -1,0 +1,8 @@
+{
+  "name": "@logitrack/backend",
+  "private": true,
+  "scripts": {
+    "docker:up": "docker compose up"
+  },
+  "type": "module"
+}

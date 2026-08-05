@@ -1,0 +1,36 @@
+services:
+  acme-companion:
+    depends_on:
+      - nginx-proxy
+    environment:
+      - DEFAULT_EMAIL=robinbobin1979@gmail.com
+    image: nginxproxy/acme-companion
+    profiles:
+      - prod
+    restart: always
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - acme:/etc/acme.sh
+      - certs:/etc/nginx/certs
+      - html:/usr/share/nginx/html
+      - vhost:/etc/nginx/vhost.d
+
+  nginx-proxy:
+    environment:
+      - TRUST_DOWNSTREAM_PROXY=false
+    image: nginxproxy/nginx-proxy:1.11.6
+    ports:
+      - 80:80
+      - 4433:443
+    restart: always
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+      - certs:/etc/nginx/certs:ro
+      - html:/usr/share/nginx/html:ro
+      - vhost:/etc/nginx/vhost.d:ro
+
+volumes:
+  acme:
+  certs:
+  html:
+  vhost:

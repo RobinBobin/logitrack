@@ -1,0 +1,7 @@
+include:
+  - compose.base.yaml
+
+services:
+  first-try:
+    build:
+      target: prod
