@@ -1,3 +1,4 @@
 set -eu
 
+node scripts/sync-pnpm.ts
 pnpm lint-staged

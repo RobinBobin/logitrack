@@ -4,6 +4,5 @@
     "noEmit": true
   },
   "extends": "@logitrack/typescript-config",
-  "files": ["eslint.config.ts"],
-  "include": ["**/*.js"]
+  "include": ["**/*.js", "**/*.ts"]
 }
