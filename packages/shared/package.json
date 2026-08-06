@@ -1,0 +1,12 @@
+{
+  "devDependencies": {
+    "typescript": "catalog:"
+  },
+  "exports": {
+    "./scriptHelpers": "./src/scriptHelpers/index.ts",
+    "./types": "./src/types.ts"
+  },
+  "name": "@logitrack/shared",
+  "private": true,
+  "type": "module"
+}

@@ -1,12 +1,14 @@
 include:
   - compose.base.yaml
 
-# services:
-#   first-try:
-#     build:
-#       target: dev
-#     pull_policy: build
+services:
+  logitrack:
+    build:
+      args:
+        PNPM_VERSION: ${PNPM_VERSION:?pnpm version must be specified}
+      target: dev
+    pull_policy: build
 
-#     volumes:
-#       - ./src:/app/src
-#       - /app/node_modules
+    volumes:
+      - ./src:/app/src
+      - /app/node_modules

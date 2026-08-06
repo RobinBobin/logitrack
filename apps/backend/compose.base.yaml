@@ -8,8 +8,8 @@ services:
       VIRTUAL_HOST: dummy-backend.${HOST_NAME:-rshalimov.duckdns.org}
     image: nginxdemos/hello:plain-text
 
-  # first-try:
-  #   environment:
-  #     ACME_HOST: first-try.${HOST_NAME:-rshalimov.duckdns.org}
-  #     VIRTUAL_HOST: first-try.${HOST_NAME:-rshalimov.duckdns.org}
-  #     VIRTUAL_PORT: ${PORT:?Port must be specified}
+  logitrack:
+    environment:
+      ACME_HOST: logitrack.${HOST_NAME:-rshalimov.duckdns.org}
+      VIRTUAL_HOST: logitrack.${HOST_NAME:-rshalimov.duckdns.org}
+      VIRTUAL_PORT: ${PORT:?Port must be specified}

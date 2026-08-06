@@ -1,8 +1,17 @@
 {
+  "dependencies": {
+    "@logitrack/shared": "workspace:*"
+  },
+  "devDependencies": {
+    "@logitrack/typescript-config": "workspace:*",
+    "find-up-simple": "^1.0.1",
+    "pkg-dir": "^9.0.0",
+    "typescript": "catalog:"
+  },
   "name": "@logitrack/backend",
   "private": true,
   "scripts": {
-    "docker:up": "docker compose up"
+    "docker:up": "node scripts/docker-up.ts"
   },
   "type": "module"
 }
