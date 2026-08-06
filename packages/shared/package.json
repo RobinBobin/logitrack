@@ -1,10 +1,12 @@
 {
   "devDependencies": {
+    "find-up-simple": "^1.0.1",
+    "package-directory": "^8.2.0",
+    "sort-json": "^2.0.1",
     "typescript": "catalog:"
   },
   "exports": {
-    "./scriptHelpers": "./src/scriptHelpers/index.ts",
-    "./types": "./src/types.ts"
+    "./scriptHelpers": "./src/scriptHelpers/index.ts"
   },
   "name": "@logitrack/shared",
   "private": true,

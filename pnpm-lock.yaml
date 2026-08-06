@@ -56,9 +56,6 @@ importers:
       prettier:
         specifier: ^3.9.6
         version: 3.9.6
-      sort-json:
-        specifier: ^2.0.1
-        version: 2.0.1
       turbo:
         specifier: ^2.10.8
         version: 2.10.8
@@ -67,20 +64,13 @@ importers:
         version: 5.8.0
 
   apps/backend:
-    dependencies:
+    devDependencies:
       '@logitrack/shared':
         specifier: workspace:*
         version: link:../../packages/shared
-    devDependencies:
       '@logitrack/typescript-config':
         specifier: workspace:*
         version: link:../../packages/typescript-config
-      find-up-simple:
-        specifier: ^1.0.1
-        version: 1.0.1
-      pkg-dir:
-        specifier: ^9.0.0
-        version: 9.0.0
       typescript:
         specifier: 'catalog:'
         version: 6.0.3
@@ -135,6 +125,15 @@ importers:
 
   packages/shared:
     devDependencies:
+      find-up-simple:
+        specifier: ^1.0.1
+        version: 1.0.1
+      package-directory:
+        specifier: ^8.2.0
+        version: 8.2.0
+      sort-json:
+        specifier: ^2.0.1
+        version: 2.0.1
       typescript:
         specifier: 'catalog:'
         version: 6.0.3
@@ -877,8 +876,8 @@ packages:
     resolution: {integrity: sha512-7GO6HghkA5fYG9TYnNxi14/7K9f5occMlp3zXAuSxn7CKCxt9xbNWG7yF8hTCSUchlfWSe3uLmlPfigevRItzQ==}
     engines: {node: '>=12'}
 
-  electron-to-chromium@1.5.399:
-    resolution: {integrity: sha512-lEcqhErbHjXRvd41rnWLpzbyU/IXfIYo7QwaFWmxGeLiLyY2TBCdHnWY88vB+p3ubnihRypDm66panXl7TylLA==}
+  electron-to-chromium@1.5.401:
+    resolution: {integrity: sha512-H6ViHN68nGYlChEvlIU67fn8O2/tpbWQPwck98yaJmh+08LSvHiydzDQ6oXNccLU3kNRVIRS9A4mA7CG+i6fLQ==}
 
   emoji-regex@10.6.0:
     resolution: {integrity: sha512-toUI84YS5YmxW219erniWD0CIVOo46xGKColeNQRgOzDorgBi1v4D71/OFzgD9GO2UGKIv1C3Sp8DAn0+j5w7A==}
@@ -1357,8 +1356,8 @@ packages:
   natural-compare@1.4.0:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
 
-  node-releases@2.0.51:
-    resolution: {integrity: sha512-wRNIrw4DmVLKQlbgOMdkMx27Wrpzes2hh5Jtbi2bjPd+4wJstWIqP5A+lscnqbm0xxmT5Bpg8Lec5ItEBwx6BQ==}
+  node-releases@2.0.52:
+    resolution: {integrity: sha512-MRlTqhAfoMx/4mhEbPo3Hi02g9LJZaJkka69V6h67Cb1gjrAG0jsTE4CZX1eptNx+VCAwJmfpnDIF4P0Nh1A7A==}
     engines: {node: '>=18'}
 
   once@1.4.0:
@@ -1383,6 +1382,10 @@ packages:
   p-locate@5.0.0:
     resolution: {integrity: sha512-LaNjtRWUBY++zB5nE/NwcaoMylSPk+S+ZHNB1TzdbMJMny6dynpAGt7X/tl/QYq3TIeE6nxHppbo2LGymrG5Pw==}
     engines: {node: '>=10'}
+
+  package-directory@8.2.0:
+    resolution: {integrity: sha512-qJSu5Mo6tHmRxCy2KCYYKYgcfBdUpy9dwReaZD/xwf608AUk/MoRtIOWzgDtUeGeC7n/55yC3MI1Q+MbSoektw==}
+    engines: {node: '>=18'}
 
   parent-module@1.0.1:
     resolution: {integrity: sha512-GQ2EWRpQV8/o+Aw8YqtfZZPfNRWZYkbidE9k5rpl/hC3vtHHBfGm2Ifi6qWV+coDGkrUKZAxE3Lot5kcsRlh+g==}
@@ -1418,11 +1421,6 @@ packages:
   picomatch@4.0.5:
     resolution: {integrity: sha512-RvwwcruNjI1ncT5xRakeyS9Lf8lcItv34KD+aif+VH9kduAyfYBipGh12274xtenIPZ119/R9BdTBa8gAwSh0A==}
     engines: {node: '>=12'}
-
-  pkg-dir@9.0.0:
-    resolution: {integrity: sha512-BMmxOuokumBehLGYwCKMBJxpAGSBbvGTtDn1yUV9UpCAvC4F7UWHoPTGSDGPV8eQPkYq/G8b0g1W5vIc5K/EhA==}
-    engines: {node: '>=18'}
-    deprecated: Renamed to `package-directory`.
 
   prelude-ls@1.2.1:
     resolution: {integrity: sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==}
@@ -2293,8 +2291,8 @@ snapshots:
     dependencies:
       baseline-browser-mapping: 2.11.12
       caniuse-lite: 1.0.30001806
-      electron-to-chromium: 1.5.399
-      node-releases: 2.0.51
+      electron-to-chromium: 1.5.401
+      node-releases: 2.0.52
       update-browserslist-db: 1.2.3(browserslist@4.28.7)
 
   buffer@5.7.1:
@@ -2450,7 +2448,7 @@ snapshots:
 
   dotenv@16.0.3: {}
 
-  electron-to-chromium@1.5.399: {}
+  electron-to-chromium@1.5.401: {}
 
   emoji-regex@10.6.0: {}
 
@@ -2914,7 +2912,7 @@ snapshots:
 
   natural-compare@1.4.0: {}
 
-  node-releases@2.0.51: {}
+  node-releases@2.0.52: {}
 
   once@1.4.0:
     dependencies:
@@ -2953,6 +2951,10 @@ snapshots:
     dependencies:
       p-limit: 3.1.0
 
+  package-directory@8.2.0:
+    dependencies:
+      find-up-simple: 1.0.1
+
   parent-module@1.0.1:
     dependencies:
       callsites: 3.1.0
@@ -2977,10 +2979,6 @@ snapshots:
   picomatch@2.3.2: {}
 
   picomatch@4.0.5: {}
-
-  pkg-dir@9.0.0:
-    dependencies:
-      find-up-simple: 1.0.1
 
   prelude-ls@1.2.1: {}
 

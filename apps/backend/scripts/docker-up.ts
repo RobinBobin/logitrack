@@ -1,28 +1,17 @@
-import type { IPackageJson } from '@logitrack/shared/types'
+import type { IPackageJson } from '@logitrack/shared/scriptHelpers'
 
-import { exitScript } from '@logitrack/shared/scriptHelpers'
-import { findUpSync } from 'find-up-simple'
+import {
+  getPackageDirectory,
+  getRootDirectory,
+  readPackageJson
+} from '@logitrack/shared/scriptHelpers'
 import { execSync } from 'node:child_process'
-import { readFileSync, writeFileSync } from 'node:fs'
-import { dirname, join, relative } from 'node:path'
-import { packageDirectorySync } from 'pkg-dir'
+import { writeFileSync } from 'node:fs'
+import { join, relative } from 'node:path'
 
-const root = dirname(findUpSync('pnpm-lock.yaml') ?? '')
-
-if (root === '.') {
-  exitScript('Workspace root not found')
-}
-
-const packageDirectory =
-  packageDirectorySync({ cwd: import.meta.dirname }) ?? ''
-
-if (!packageDirectory) {
-  exitScript('Package root not found')
-}
-
-const packageJson = JSON.parse(
-  readFileSync(join(root, 'package.json'), 'utf-8')
-) as IPackageJson
+const packageDirectory = getPackageDirectory(import.meta.dirname)
+const rootDirectory = getRootDirectory()
+const rootPackageJson = readPackageJson<IPackageJson>(rootDirectory)
 
 const { NODE_ENV = 'dev' } = process.env
 
@@ -31,8 +20,8 @@ let composeYaml = join(packageDirectory, `compose.${NODE_ENV}.yaml`)
 const buf = execSync(`docker compose -f ${composeYaml} config`, {
   env: {
     ...process.env,
-    BACKEND_DIR: relative(root, packageDirectory),
-    PNPM_VERSION: packageJson.engines.pnpm,
+    BACKEND_DIR: relative(rootDirectory, packageDirectory),
+    PNPM_VERSION: rootPackageJson.engines.pnpm,
     ROOT: '/app'
   }
 })
