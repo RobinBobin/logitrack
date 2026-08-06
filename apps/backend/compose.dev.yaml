@@ -4,11 +4,16 @@ include:
 services:
   logitrack:
     build:
+      additional_contexts:
+        root: ../..
       args:
+        BACKEND_DIR: ${ROOT}/${BACKEND_DIR:?backend dir must be specified}
         PNPM_VERSION: ${PNPM_VERSION:?pnpm version must be specified}
+        ROOT: ${ROOT:?root must be specified}
       target: dev
     pull_policy: build
 
     volumes:
-      - ./src:/app/src
-      - /app/node_modules
+      - ./src:/${ROOT}/${BACKEND_DIR}/src
+      - /${ROOT}/node_modules
+      - /${ROOT}/${BACKEND_DIR}/node_modules

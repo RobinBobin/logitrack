@@ -5,5 +5,5 @@
     "noEmit": true
   },
   "extends": "@logitrack/typescript-config",
-  "include": ["scripts/**/*.ts"]
+  "include": ["scripts/**/*.ts", "src/**/*.ts"]
 }

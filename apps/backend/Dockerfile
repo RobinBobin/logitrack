@@ -1,15 +1,25 @@
+ARG BACKEND_DIR
+ARG ROOT
+
 FROM node:24-alpine AS base
-WORKDIR /app
+ARG BACKEND_DIR
+ARG ROOT
+RUN ["echo", "${ROOT:?root must be specified}"]
+RUN ["echo", "${BACKEND_DIR:?backend dir must be specified}"]
+WORKDIR ${ROOT}
 RUN corepack enable && corepack prepare pnpm@11.18.0 --activate
-COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
+COPY --from=root package.json pnpm-lock.yaml pnpm-workspace.yaml ./
+WORKDIR ${BACKEND_DIR}
+COPY package.json ./
+WORKDIR ${ROOT}
 
 FROM base AS common
 RUN --mount=type=cache,id=pnpm,target=/root/.local/share/pnpm/store \
   pnpm install --frozen-lockfile
 
 FROM common AS dev
-COPY tsconfig.json tsconfig.dev.json ./
-ENV NODE_ENV=development
+WORKDIR ${BACKEND_DIR}
+# COPY tsconfig.json tsconfig.dev.json ./
 CMD ["pnpm", "start:dev"]
 
 FROM common AS build
@@ -18,7 +28,7 @@ RUN pnpm build:prod
 RUN pnpm prune --ignore-scripts --prod
 
 FROM node:24-alpine AS prod
-WORKDIR /app
+WORKDIR ${ROOT}
 ENV NODE_ENV=production
 
 RUN chown node:node /app

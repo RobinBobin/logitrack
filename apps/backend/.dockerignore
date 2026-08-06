@@ -1,11 +1,9 @@
 **/*
 
-!package.json
+!**/package.json
+!**/pnpm-workspace.yaml
 !pnpm-lock.yaml
-!pnpm-workspace.yaml
-!tsconfig.json
-!tsconfig.dev.json
-!tsconfig.prod.json
 
-!src/
-!src/**/*
+# !tsconfig.json
+# !tsconfig.dev.json
+# !tsconfig.prod.json
