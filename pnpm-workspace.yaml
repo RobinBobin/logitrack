@@ -3,6 +3,7 @@ allowBuilds:
 
 catalog:
   eslint: '^10.8.0'
+  type-fest: '^5.8.0'
   typescript: '^6.0.3'
 
 packages:

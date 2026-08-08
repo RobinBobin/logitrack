@@ -1,8 +1,10 @@
 {
   "devDependencies": {
+    "@types/sort-json": "^2.0.3",
     "find-up-simple": "^1.0.1",
     "package-directory": "^8.2.0",
     "sort-json": "^2.0.1",
+    "type-fest": "catalog:",
     "typescript": "catalog:"
   },
   "exports": {
