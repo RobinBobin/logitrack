@@ -11,6 +11,7 @@
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "catalog:",
     "husky": "^9.1.7",
+    "jiti": "^2.7.0",
     "lint-staged": "^17.3.0",
     "prettier": "^3.9.6",
     "turbo": "^2.10.8",

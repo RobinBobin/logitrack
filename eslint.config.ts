@@ -1,4 +1,7 @@
-import baseConfig, { includeGitignore } from '@logitrack/eslint-config'
-import { defineConfig } from 'eslint/config'
+import { makeUpConfig } from '@logitrack/eslint-config'
 
-export default defineConfig([baseConfig, includeGitignore(import.meta.url)])
+export default makeUpConfig({
+  customConfig: { ignores: ['apps', 'packages'] },
+  files: ['./*{js,ts}', 'scripts/**/*.ts'],
+  packageDirectory: import.meta.dirname
+})
