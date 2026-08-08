@@ -15,12 +15,14 @@
     "strict": true,
 
     // Modules
+    "allowImportingTsExtensions": true,
     "module": "ES2022",
     "moduleResolution": "Bundler",
     "noUncheckedSideEffectImports": true,
     "types": ["node"],
 
     // Emit
+    "noEmit": true,
     "noEmitOnError": true,
 
     // JavaScript Support

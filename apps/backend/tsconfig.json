@@ -1,9 +1,5 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
-  "compilerOptions": {
-    "allowImportingTsExtensions": true,
-    "noEmit": true
-  },
   "extends": "@logitrack/typescript-config",
   "include": ["scripts/**/*.ts", "src/**/*.ts"]
 }
